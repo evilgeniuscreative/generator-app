@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Generated Images</h1>
+    <a href="/download">Download All as ZIP</a><br><br>
+    <div class="gallery">
+      {% for image in images %}
+        <div class="thumb">
+          <img src="{{ url_for('static', filename='images/' ~ image) }}" alt="{{ image }}">
+          <p>{{ image }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    <br><a href="/">Go Back</a>
+  </div>
+</body>
+</html>
