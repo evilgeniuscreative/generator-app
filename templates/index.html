@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prompt Generator</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Prompt Generator</h1>
+
+    <div class="toggle-buttons">
+      <button type="button" onclick="toggleInput('csv')">Upload CSV</button>
+      <button type="button" onclick="toggleInput('manual')">Manual Entry</button>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="inputMode" id="inputMode" value="csv">
+
+      <div id="csvInput">
+        <label for="promptFile">Upload a CSV file:</label>
+        <input type="file" name="promptFile" accept=".csv">
+      </div>
+
+      <div id="manualInput" style="display:none;">
+        <label for="manualPrompts">Enter prompts (one per line):</label><br>
+        <textarea name="manualPrompts" rows="10" cols="50"></textarea>
+      </div>
+
+      <br>
+      <button type="submit">Generate</button>
+    </form>
+  </div>
+</body>
+</html>
